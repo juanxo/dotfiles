@@ -41,9 +41,9 @@ need_push () {
 }
 
 rb_prompt(){
-  if $(which rbenv &> /dev/null)
+  if $(which rvm &> /dev/null)
   then
-	  echo "%{$fg_bold[yellow]%}$(rbenv version | awk '{print $1}')%{$reset_color%}"
+	  echo "%{$fg_bold[yellow]%}$(rvm version | awk '{print $2}')%{$reset_color%}"
 	else
 	  echo ""
   fi
@@ -72,9 +72,28 @@ directory_name(){
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
+get_uptime(){
+  echo "$(uptime | grep -o 'up [^,]*')"
+}
+
+last_week_history() {
+  st=$(/usr/bin/git status 2>/dev/null | tail -n 1)
+  if [[ $st == "" ]]
+  then
+    echo ""
+  else
+
+    commits=("${(@f)$(for day in $(seq 7 -1 0); do
+      git log --before="${day} days" --after="$[${day}+1] days" --format=oneline | wc -l
+    done)}")
+
+    echo "$(spark $commits)"
+  fi
+}
+
+export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push) $(last_week_history) \n› '
 set_prompt () {
-  export RPROMPT="%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
+  export RPROMPT="$(get_uptime)%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
 }
 
 precmd() {
