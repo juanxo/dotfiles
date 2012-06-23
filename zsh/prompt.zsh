@@ -91,7 +91,7 @@ last_week_history() {
   fi
 }
 
-export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push) $(last_week_history) \n› '
+export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
   export RPROMPT="$(get_uptime)%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
 }
