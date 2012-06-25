@@ -1,0 +1,4 @@
+#numbers
+regexp=\s\d+\s
+colours=bold yellow
+count=more
