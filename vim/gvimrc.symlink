@@ -1,0 +1,197 @@
+version 6.0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GENERAL
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""    
+
+set nocompatible
+
+filetype off
+
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+call pathogen#infect()
+
+syntax on
+
+filetype plugin on
+filetype indent on
+" This sets a special character that you can use in command mode, instead of /
+let mapleader = ","
+let g:mapleader = ","
+
+history=100
+
+set autoread
+
+"Fast save
+nmap <leader>w :w!<cr> 
+
+map <leader>e :e ~/.gvimrc<cr>
+
+" Reloads the configuration file anytime it's changed
+autocmd! bufwritepost vimrc source ~/.gvimrc
+
+let g:session_autosave = 1
+let g:session_autoload = 'no'
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" USER INTERFACE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""    
+set ruler
+
+set cmdheight=2
+
+set columns=100
+
+" backspace configuration
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+"Ignore case when searching
+set ignorecase
+
+set smartcase
+
+set hlsearch "Highlights the search
+
+set incsearch "Make search incremental
+
+set magic
+
+set showmatch
+
+set mat=2 "How many tenths of a second to blink
+
+" No sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+if has("win32")
+  "TODO: Add runtime path for windows
+elseif has("unix")
+  set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim73,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
+endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""    
+" COLORS AND FONTS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""    
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=Inconsolata\ 12
+  elseif has("gui_win32")
+    set guifont=Consolas:h11:cANSI
+  endif
+endif
+"set gfn=Monospace\ 10
+set shell=/bin/bash
+
+if has("gui_running")
+  set guioptions-=T
+  set background=dark
+  colorscheme slate
+  set number
+endif
+
+set encoding=utf8
+try
+  lang es_ES
+catch
+endtry
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""    
+" FILES AND BACKUPS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""    
+
+set nobackup
+set nowb
+set noswapfile
+
+set fileformat=unix
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+" TEXT, TAB AND INDENT RELATED
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""    
+
+set expandtab
+set shiftwidth=2
+set tabstop=2
+set smarttab
+
+set textwidth=100
+
+set ai
+set si
+set wrap
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+" MAPPINGS AND ABBREVIATIONS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+
+"Close the current buffer
+map <leader>bd :Bclose<cr>
+
+"Close all the buffers
+map <leader>ba :1,100 bd!<cr>
+
+"Use the arrows to move between tabs
+map <right> :bn<cr>
+map <left> :bp<cr>
+
+"Tab configuration
+map <leader>tn :tabnew<cr>
+map <leader>te :tabedit
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+
+"Join lines
+map <C-J> <C-j>
+
+"Window movement
+map <C-j> <C-W>j
+map <C-h> <C-W>h
+map <C-k> <C-W>k
+map <C-l> <C-W>l
+
+map <leader>o :OpenSession
+map <leader>s :SaveSession
+map <leader>S :SaveSession<cr>
+map <leader>O :OpenSession<cr>
+
+command! Bclose call <SID>BufcloseCloseIt()
+
+function! <SID>BufcloseCloseIt()
+   let l:currentBufNum = bufnr("%")
+   let l:alternateBufNum = bufnr("#")
+
+   if buflisted(l:alternateBufNum)
+     buffer #
+   else
+     bnext
+   endif
+
+   if bufnr("%") == l:currentBufNum
+     new
+   endif
+
+   if buflisted(l:currentBufNum)
+     execute("bdelete! ".l:currentBufNum)
+   endif
+endfunction
+
+" Specify the behavior when switching between buffers 
+try
+  set switchbuf=usetab
+  set stal=2
+catch
+endtry
+
+ab #c """"""""""""""""""""
+ab #l """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
+
