@@ -1,0 +1,194 @@
+version 7.0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GENERAL
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set nocompatible
+
+" This sets a special character that you can use in command mode, instead of :
+let mapleader = ","
+let g:mapleader = ","
+imap jj <ESC>
+
+set autoread
+
+"Fast save
+nmap <leader>w :w!<cr>
+map <leader>e :e ~/.vimrc<cr>
+
+" Reloads the configuration file anytime it's changed
+autocmd BufWritePost .vimrc so ~/.vimrc
+
+let g:session_autosave = 1
+let g:session_autoload = 'no'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" USER INTERFACE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set ruler
+set cmdheight=2
+
+" backspace configuration
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+"Ignore case when searching
+set ignorecase
+
+set smartcase
+
+set hlsearch "Highlights the search
+
+set incsearch "Make search incremental
+
+set showmatch
+
+set mat=2 "How many tenths of a second to blink
+
+set tm=500
+
+if has("win32")
+  "TODO: Add runtime path for windows
+elseif has("unix")
+  set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim73,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
+endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" COLORS AND FONTS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set shell=/bin/zsh
+
+set encoding=utf8
+try
+  lang es_ES
+catch
+endtry
+
+" Hitting F5 will clean out all trailing whitespace or tabs
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>:retab<CR>
+
+if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+  syntax on
+  set nohlsearch
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FILES AND BACKUPS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set nobackup
+set nowritebackup
+set noswapfile
+
+set fileformat=unix
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TEXT, TAB AND INDENT RELATED
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set expandtab
+set shiftwidth=2
+set tabstop=2
+set smarttab
+
+set textwidth=100
+
+set autoindent
+set smartindent
+set wrap
+
+set wildmode=list:longest,list:full
+set complete=.,w,t
+
+" Shameless steal from @fcsonline
+
+let encoding = '[' . (&fenc==''?&enc:&fenc) . ((exists('+bomb') && &bomb) ? ',B' : '') . ']'
+
+set statusline=%f                         "tail of the filename
+set statusline+=%y                        "filetype
+set statusline+=%{encoding}               "encoding
+set statusline+=%{fugitive#statusline()}
+set statusline+=%m                        "modified flag
+set statusline+=%=                        "left/right separator
+set statusline+=%c,                       "cursor column
+set statusline+=%l/%L                     "cursor line/total lines
+set statusline+=\ %P                      "percent through file
+set laststatus=2
+
+set list listchars=tab:..,trail:·
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MAPPINGS AND ABBREVIATIONS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Toggle NERDTree
+map <leader>n :NERDTreeToggle<CR>
+
+map <silent> <leader>l :nohlsearch<CR>
+
+
+"Close the current buffer
+map <leader>bd :Bclose<cr>
+
+"Close all the buffers
+map <leader>ba :1,100 bd!<cr>
+
+"Use the arrows to move between tabs
+map <right> :bn<cr>
+map <left> :bp<cr>
+
+"Tab configuration
+map <leader>tn :tabnew<cr>
+map <leader>te :tabedit
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+
+"Join lines
+map <C-J> <C-j>
+
+"Window movement
+map <C-j> <C-W>j
+map <C-h> <C-W>h
+map <C-k> <C-W>k
+map <C-l> <C-W>l
+
+map <leader>o :OpenSession
+map <leader>s :SaveSession
+map <leader>S :SaveSession<cr>
+map <leader>O :OpenSession<cr>
+
+command! Bclose call <SID>BufcloseCloseIt()
+
+function! <SID>BufcloseCloseIt()
+   let l:currentBufNum = bufnr("%")
+   let l:alternateBufNum = bufnr("#")
+
+   if buflisted(l:alternateBufNum)
+     buffer #
+   else
+     bnext
+   endif
+
+   if bufnr("%") == l:currentBufNum
+     new
+   endif
+
+   if buflisted(l:currentBufNum)
+     execute("bdelete! ".l:currentBufNum)
+   endif
+endfunction
+
+" Specify the behavior when switching between buffers
+try
+  set switchbuf=usetab
+  set stal=2
+catch
+endtry
+
+filetype off
+
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+filetype plugin indent on
