@@ -20,7 +20,7 @@ filetype indent on
 let mapleader = ","
 let g:mapleader = ","
 
-history=100
+set history=100
 
 set autoread
 
