@@ -35,6 +35,8 @@ autocmd! bufwritepost vimrc source ~/.gvimrc
 let g:session_autosave = 1
 let g:session_autoload = 'no'
 
+" Remove trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
