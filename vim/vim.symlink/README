@@ -1,9 +1,0 @@
-This repository holds my personal configuration for vim/gvim editor.
-
-I mainly work on Windows or Ubuntu, so this script is mainly aimed at those OS.
-
-
-There are 2 scripts that put each file in its corresponding place automatically, just run them to install the configuration in your system.
-
-
-(Note: Your paths can be different from mine, so consider change them if neccesary. But nobody will use it, so i'm safe)
