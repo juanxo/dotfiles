@@ -37,3 +37,9 @@
 [submodule "vim/vim.symlink/bundle/vim-slim"]
 	path = vim/vim.symlink/bundle/vim-slim
 	url = https://github.com/slim-template/vim-slim
+[submodule "vim/vim.symlink/bundle/html5-syntax"]
+	path = vim/vim.symlink/bundle/html5-syntax
+	url = https://github.com/othree/html5-syntax.vim
+[submodule "vim/vim.symlink/bundle/zencoding"]
+	path = vim/vim.symlink/bundle/zencoding
+	url = https://github.com/mattn/zencoding-vim
