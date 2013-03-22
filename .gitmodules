@@ -19,3 +19,6 @@
 [submodule "vim/vim.symlink/bundle/javascript"]
 	path = vim/vim.symlink/bundle/javascript
 	url = https://github.com/pangloss/vim-javascript
+[submodule "vim/vim.symlink/bundle/ultisnips"]
+	path = vim/vim.symlink/bundle/ultisnips
+	url = git://github.com/SirVer/ultisnips.git
