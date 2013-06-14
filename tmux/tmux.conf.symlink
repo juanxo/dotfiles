@@ -1,0 +1,76 @@
+# Set prefix to C-j, easier for a vim user
+set -g prefix C-j
+unbind C-b
+
+# Decrease delay
+set -s escape-time 1
+
+# Windows and panes are 1 based
+set -g base-index 1
+setw -g pane-base-index 1
+
+# Reload conf
+bind r source-file ~/.tmux.conf \; display "Reloaded!"
+
+# Allow applications use da PREFIX
+bind C-j send-prefix
+
+# More "natural" split bindings
+bind | split-window -h
+bind - split-window -v
+
+# Move through panes as in Vim
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# Cycle through windows
+bind -r C-h select-window -t :-
+bind -r C-l select-window -t :+
+
+# Pane resizing
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+# Let's remove the mouse to force me to use keyboard
+# but mouse could be interesting to scroll in buffers
+setw -g mode-mouse off
+
+# PUKE RAINBOWS
+set -g default-terminal "screen-256color"
+
+# Status bar
+set -g status-fg white
+set -g status-bg black
+
+setw -g window-status-fg cyan
+setw -g window-status-bg default
+setw -g window-status-attr dim
+
+setw -g window-status-current-fg white
+setw -g window-status-current-bg red
+setw -g window-status-current-attr bright
+
+set -g status-utf8 on
+
+set -g status-left-length 40
+set -g status-left "[#S:#I:#P]"
+
+set -g status-right "#[fg=cyan]%d/%m %R"
+
+set -g status-justify centre
+
+# Pane borders
+set -g pane-border-fg black
+set -g pane-active-border-fg yellow
+
+# Monitoring
+setw -g monitor-activity on
+set -g visual-activity on
+
+# Clear pane
+unbind c
+bind c send-keys -R \; send-keys "Enter"
