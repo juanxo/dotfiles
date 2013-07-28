@@ -1,4 +1,4 @@
 alias reload!='. ~/.zshrc'
 
-alias ls='ls --color=auto'
-alias ll='ls --color=auto -l'
+#alias ls='ls --color=auto'
+alias ll='ls -l'
