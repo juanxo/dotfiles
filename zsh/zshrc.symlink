@@ -38,3 +38,4 @@ do
 done
 
 unset config_files
+[[ -s /Users/juanxo/.tmuxinator/scripts/tmuxinator ]] && source /Users/juanxo/.tmuxinator/scripts/tmuxinator
