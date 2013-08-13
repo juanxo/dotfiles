@@ -55,3 +55,15 @@
 [submodule "vim/vim.symlink/bundle/vim-rspec"]
 	path = vim/vim.symlink/bundle/vim-rspec
 	url = https://github.com/thoughtbot/vim-rspec
+[submodule "vim/vim.symlink/bundle/vim-coloresque"]
+	path = vim/vim.symlink/bundle/vim-coloresque
+	url = https://github.com/gorodinskiy/vim-coloresque.git
+[submodule "vim/vim.symlink/bundle/vim-endwise"]
+	path = vim/vim.symlink/bundle/vim-endwise
+	url = https://github.com/tpope/vim-endwise.git
+[submodule "vim/vim.symlink/bundle/vim-syntastic"]
+	path = vim/vim.symlink/bundle/vim-syntastic
+	url = https://github.com/scrooloose/syntastic
+[submodule "vim/vim.symlink/bundle/coffeescript-vim"]
+	path = vim/vim.symlink/bundle/coffeescript-vim
+	url = https://github.com/kchmck/vim-coffee-script
