@@ -37,9 +37,6 @@
 [submodule "vim/vim.symlink/bundle/html5-syntax"]
 	path = vim/vim.symlink/bundle/html5-syntax
 	url = https://github.com/othree/html5-syntax.vim
-[submodule "vim/vim.symlink/bundle/zencoding"]
-	path = vim/vim.symlink/bundle/zencoding
-	url = https://github.com/mattn/zencoding-vim
 [submodule "vim/vim.symlink/bundle/webapi-vim"]
 	path = vim/vim.symlink/bundle/webapi-vim
 	url = https://github.com/mattn/webapi-vim
@@ -67,3 +64,6 @@
 [submodule "vim/vim.symlink/bundle/coffeescript-vim"]
 	path = vim/vim.symlink/bundle/coffeescript-vim
 	url = https://github.com/kchmck/vim-coffee-script
+[submodule "vim/vim.symlink/bundle/emmet-vim"]
+	path = vim/vim.symlink/bundle/emmet-vim
+	url = https://github.com/mattn/emmet-vim
