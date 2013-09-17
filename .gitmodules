@@ -67,3 +67,9 @@
 [submodule "vim/vim.symlink/bundle/emmet-vim"]
 	path = vim/vim.symlink/bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim
+[submodule "vim/vim.symlink/bundle/vim-php"]
+	path = vim/vim.symlink/bundle/vim-php
+	url = https://github.com/StanAngeloff/php.vim
+[submodule "vim/vim.symlink/bundle/phpunit-vim"]
+	path = vim/vim.symlink/bundle/phpunit-vim
+	url = https://github.com/joonty/vim-phpunitqf
