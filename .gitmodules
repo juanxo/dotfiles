@@ -73,3 +73,6 @@
 [submodule "vim/vim.symlink/bundle/phpunit-vim"]
 	path = vim/vim.symlink/bundle/phpunit-vim
 	url = https://github.com/joonty/vim-phpunitqf
+[submodule "vim/vim.symlink/bundle/vim-phpunit"]
+	path = vim/vim.symlink/bundle/vim-phpunit
+	url = https://github.com/joonty/vim-phpunitqf
