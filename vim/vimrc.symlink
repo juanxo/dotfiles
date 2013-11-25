@@ -6,6 +6,16 @@ version 7.0
 
 set nocompatible
 
+
+" Open preview windows in a vertical split instead of horizontal split
+let g:netrw_preview = 1
+
+" Open Ex splits at the right instead of left
+let g:netrw_alt = 1
+
+" Set tree display format in Ex
+let g:netrw_liststyle = 4
+
 " This sets a special character that you can use in command mode, instead of :
 let mapleader = ","
 let g:mapleader = ","
@@ -62,7 +72,7 @@ set shell=/bin/zsh
 
 set encoding=utf8
 try
-  lang es_ES
+  lang en_US
 catch
 endtry
 
@@ -188,6 +198,7 @@ try
   set stal=2
 catch
 endtry
+
 
 filetype off
 
