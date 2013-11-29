@@ -39,3 +39,5 @@ done
 
 unset config_files
 [[ -s /Users/juanxo/.tmuxinator/scripts/tmuxinator ]] && source /Users/juanxo/.tmuxinator/scripts/tmuxinator
+
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
