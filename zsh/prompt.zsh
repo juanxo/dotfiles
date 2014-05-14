@@ -12,7 +12,7 @@ git_dirty() {
   then
     echo ""
   else
-    if [[ $st == "nothing to commit (working directory clean)" ]]
+    if [[ $st == "nothing to commit, working directory clean" ]]
     then
       echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
     else
@@ -91,7 +91,7 @@ last_week_history() {
   fi
 }
 
-export PROMPT=$'\n$(rb_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$'\n$(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
   export RPROMPT="$(get_uptime)%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
 }

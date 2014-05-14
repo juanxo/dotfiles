@@ -59,6 +59,8 @@ set mat=2 "How many tenths of a second to blink
 
 set tm=500
 
+set number
+
 if has("win32")
   "TODO: Add runtime path for windows
 elseif has("unix")
@@ -148,8 +150,8 @@ map <leader>bd :Bclose<cr>
 map <leader>ba :1,100 bd!<cr>
 
 "Use the arrows to move between tabs
-map <right> :bn<cr>
-map <left> :bp<cr>
+map <tab> :bn<cr>
+map <S-tab> :bp<cr>
 
 "Tab configuration
 map <leader>tn :tabnew<cr>
@@ -165,6 +167,10 @@ map <C-j> <C-W>j
 map <C-h> <C-W>h
 map <C-k> <C-W>k
 map <C-l> <C-W>l
+
+"Allow to indent in visual mode repeatedly
+vmap < <gv
+vmap > >gv
 
 map <leader>o :OpenSession
 map <leader>s :SaveSession
@@ -199,6 +205,9 @@ try
 catch
 endtry
 
+source $HOME/.localvimrc
+
+autocmd BufWritePost .localvimrc so ~/.localvimrc
 
 filetype off
 

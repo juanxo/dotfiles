@@ -1,0 +1,4 @@
+#!/bin/sh
+branch=$1
+git checkout "$branch"
+git merge "origin/$branch" --ff-only

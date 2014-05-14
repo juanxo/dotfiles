@@ -76,3 +76,30 @@
 [submodule "vim/vim.symlink/bundle/vim-phpunit"]
 	path = vim/vim.symlink/bundle/vim-phpunit
 	url = https://github.com/joonty/vim-phpunitqf
+[submodule "vim/vim.symlink/bundle/goyo.vim"]
+	path = vim/vim.symlink/bundle/goyo.vim
+	url = https://github.com/junegunn/goyo.vim
+[submodule "vim/vim.symlink/bundle/zenroom.vim"]
+	path = vim/vim.symlink/bundle/zenroom.vim
+	url = https://github.com/amix/vim-zenroom2
+[submodule "vim/vim.symlink/bundle/vim-ruby-refactoring"]
+	path = vim/vim.symlink/bundle/vim-ruby-refactoring
+	url = https://github.com/ecomba/vim-ruby-refactoring
+[submodule "vim/vim.symlink/bundle/targets.vim"]
+	path = vim/vim.symlink/bundle/targets.vim
+	url = https://github.com/wellle/targets.vim
+[submodule "vim/vim.symlink/bundle/vim-exchange"]
+	path = vim/vim.symlink/bundle/vim-exchange
+	url = https://github.com/tommcdo/vim-exchange
+[submodule "vim/vim.symlink/bundle/vim-signify"]
+	path = vim/vim.symlink/bundle/vim-signify
+	url = https://github.com/mhinz/vim-signify
+[submodule "vim/vim.symlink/bundle/vim-multiple-cursors"]
+	path = vim/vim.symlink/bundle/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors
+[submodule "vim/vim.symlink/bundle/vim-ragtag"]
+	path = vim/vim.symlink/bundle/vim-ragtag
+	url = https://github.com/tpope/vim-ragtag
+[submodule "vim/vim.symlink/bundle/vim-puppet"]
+	path = vim/vim.symlink/bundle/vim-puppet
+	url = https://github.com/rodjek/vim-puppet

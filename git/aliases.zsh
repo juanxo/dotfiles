@@ -1,9 +1,7 @@
-# Use `hub` as our git wrapper:
-#   http://defunkt.github.com/hub/
-hub_path=$(which hub)
-if (( $+commands[hub] ))
+gh_path=$(which gh)
+if (( $+commands[gh] ))
 then
-  alias git=$hub_path
+  alias git=$gh_path
 fi
 
 # The rest of my fun git aliases
@@ -17,3 +15,6 @@ alias gco='git checkout'
 alias gb='git branch'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+alias gf='git fetch --all'
+alias gmt='git merge-tracking'
+alias gam='git commit --amend --reuse-message=HEAD'
