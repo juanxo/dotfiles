@@ -1,4 +1,4 @@
 #!/bin/sh
-branch=$1
+branch=${1-`git rev-parse --abbrev-ref HEAD`}
 git checkout "$branch"
 git merge "origin/$branch" --ff-only

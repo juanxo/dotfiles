@@ -6,7 +6,6 @@ version 7.0
 
 set nocompatible
 
-
 " Open preview windows in a vertical split instead of horizontal split
 let g:netrw_preview = 1
 
@@ -108,7 +107,7 @@ set shiftwidth=2
 set tabstop=2
 set smarttab
 
-set textwidth=100
+set textwidth=140
 
 set autoindent
 set smartindent
@@ -116,6 +115,8 @@ set wrap
 
 set wildmode=list:longest,list:full
 set complete=.,w,t
+
+set wildignore+=*/node_modules/*,*/bower_components/*,*/target/**/*.class
 
 " Shameless steal from @fcsonline
 
@@ -208,6 +209,11 @@ endtry
 source $HOME/.localvimrc
 
 autocmd BufWritePost .localvimrc so ~/.localvimrc
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 filetype off
 

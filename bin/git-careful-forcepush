@@ -1,0 +1,12 @@
+CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
+git fetch
+
+LOCAL_HASH=`git show-ref -s refs/heads/$CURRENT_BRANCH`
+REMOTE_HASH=`git show-ref -s refs/remotes/origin/$CURRENT_BRANCH`
+
+if [ "$LOCAL_HASH" == "$REMOTE_HASH" ]; then
+  echo "There are no changes, force pushing"
+  git push -f
+else
+  echo "There are changes, check them before pushing"
+fi

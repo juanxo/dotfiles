@@ -18,3 +18,6 @@ alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias gf='git fetch --all'
 alias gmt='git merge-tracking'
 alias gam='git commit --amend --reuse-message=HEAD'
+alias gpr='git pull-request'
+alias gh-open-pulls='git issue | grep pull'
+alias grc='git rebase --continue'

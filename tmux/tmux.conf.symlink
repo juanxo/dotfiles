@@ -76,3 +76,6 @@ set -g visual-activity on
 # Clear pane
 unbind c
 bind c send-keys -R \; send-keys "Enter"
+
+# Over 9000
+set-option -g history-limit 10000
