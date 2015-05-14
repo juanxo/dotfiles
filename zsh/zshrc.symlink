@@ -45,5 +45,8 @@ unset config_files
 
 # Enable incremental search in history
 bindkey "^R" history-incremental-search-backward
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
-export DEVELOPMENT_DIRECTORY=$HOME/chicisimo/projects
+source '/Users/juanxo/google-cloud-sdk/path.zsh.inc'
+source '/Users/juanxo/google-cloud-sdk/completion.zsh.inc'

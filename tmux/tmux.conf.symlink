@@ -11,6 +11,9 @@ set -s escape-time 1
 set -g base-index 1
 setw -g pane-base-index 1
 
+set -g base-index 1
+set -g pane-base-index 1
+
 # Reload conf
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
 

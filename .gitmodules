@@ -127,3 +127,6 @@
 [submodule "vim/vim.symlink/bundle/vim-clojure-static"]
 	path = vim/vim.symlink/bundle/vim-clojure-static
 	url = https://github.com/guns/vim-clojure-static
+[submodule "vim/vim.symlink/bundle/vim-jsbeautify"]
+	path = vim/vim.symlink/bundle/vim-jsbeautify
+	url = https://github.com/maksimr/vim-jsbeautify.git
