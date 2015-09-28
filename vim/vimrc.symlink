@@ -58,7 +58,7 @@ set mat=2 "How many tenths of a second to blink
 
 set tm=500
 
-set number
+set nonumber
 
 if has("win32")
   "TODO: Add runtime path for windows

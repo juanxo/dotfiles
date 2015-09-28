@@ -1,5 +1,5 @@
-gh_path=$(which gh)
-if (( $+commands[gh] ))
+gh_path=$(which hub)
+if (( $+commands[hub] ))
 then
   alias git=$gh_path
 fi
