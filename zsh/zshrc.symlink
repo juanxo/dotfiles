@@ -1,3 +1,5 @@
+source /etc/profile
+
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/dotfiles
 
@@ -46,7 +48,8 @@ unset config_files
 # Enable incremental search in history
 bindkey "^R" history-incremental-search-backward
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="/opt/pgsql/bin:$PATH"
 eval "$(rbenv init -)"
+eval "$(ssh-agent -s)"
 
-source '/Users/juanxo/google-cloud-sdk/path.zsh.inc'
-source '/Users/juanxo/google-cloud-sdk/completion.zsh.inc'
+stty -ixon
